@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  background-attachment: fixed;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.app-header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, #c23c2a, #ffd700, #4a9eff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.title-icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+}
+
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .title-icon {
+    font-size: 2rem;
+  }
+}
+
+.subtitle {
+  color: #aaa;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+}
+
+.app-main {
+  flex: 1;
+  /* padding: 20px; */
+}
+
+.app-footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 1px solid #444;
+  margin-top: 40px;
+}
+
+.app-footer p {
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.footer-link {
+  color: #4a9eff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #6bb3ff;
+  text-decoration: underline;
+}
+
+.stratz-credit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.stratz-credit span {
+  color: #888;
+  font-size: 12px;
+}
+
+.stratz-link {
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.stratz-link:hover {
+  opacity: 0.8;
+}
+
+.stratz-logo {
+  height: 50px;
+  width: auto;
+  filter: brightness(0.9);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c23c2a;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d14432;
+}
