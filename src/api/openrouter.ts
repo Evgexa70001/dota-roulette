@@ -41,7 +41,17 @@ export const getAIRecommendations = async (
   }
 ): Promise<AIRecommendationResponse | null> => {
   try {
-    const apiKey = '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';
+    // Используем ключ из переменной окружения или fallback на захардкоженный
+    const apiKey = import.meta.env.VITE_OPENROUTER_API_KEY || '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';
+    
+    if (!apiKey) {
+      console.error('OpenRouter API key is missing');
+      return null;
+    }
+    
+    console.log('Using API key:', apiKey.substring(0, 20) + '...');
+    console.log('API key length:', apiKey.length);
+    console.log('Has env var:', !!import.meta.env.VITE_OPENROUTER_API_KEY);
 
     // Формируем список доступных предметов для промпта
     const formatItems = (items: Array<{ itemId: number; displayName: string; winsAverage: number; matchCount: number }>) => {
@@ -125,6 +135,12 @@ ${formatItems(availableItems.late)}
     if (!response.ok) {
       const errorText = await response.text().catch(() => 'Unknown error');
       console.error(`OpenRouter API error: ${response.status} ${response.statusText}`, errorText);
+      console.error('Request headers:', {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey.substring(0, 10)}...`,
+        'HTTP-Referer': window.location.origin,
+        'X-Title': 'Dota 2 Hero Roulette',
+      });
       return null;
     }
 
